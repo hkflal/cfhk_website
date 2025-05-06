@@ -1,0 +1,44 @@
+you are a full stack web developer, please research and plan a seo friendly website for me based on the following criteria, please take time to research and think, you can communicate with other team expert for seo and contents etc.
+
+1. a NextJs based SEO optimised website with mainly static contents, also consider optimising metadata.
+2. put most seo contents {generate from keyword list i provided in step 3) in the landign page.
+3. SEO keyword list : {hkflal.com
+30 Keywords
+外勞
+請外勞
+招聘外勞
+香港外勞
+外勞公司
+香港外勞公司
+外勞中介
+外勞中介公司
+外勞中介推薦
+外勞顧問
+外勞顧問公司
+外勞代理
+外勞代辦
+外勞服務
+
+外勞申請
+香港外勞申請
+外勞申請資格
+外勞申請流程
+外勞申請程序
+外勞申請條件
+外勞申請補助
+外勞申請費用
+
+外勞住宿
+香港外勞住宿
+外勞住宿規定
+外勞住宿問題
+外勞住宿費用
+外勞宿舍
+香港外勞宿舍
+外勞宿舍要求}, use these keywords and do research to create SEO contents, please only use real and citied source contents as references.
+4. dynamic website and optimised for mobile.
+5. use traditional chinese for contents , it is a hong kong region based website focusing on local business owners who wanted to employ imported labour forces from mainland china.
+6. use tailwind css for styling , i want professional and modern UI /UX.
+7. i want a media press area to put news about hong kong labour forces 
+8. use professional colors pairs such as black , blue , and white 
+9. The website is originate from old website template {@https://tempi1021.nexvision.cc/ } , please reference only  and only keep logo, compant names and gov registeded number etc. 
