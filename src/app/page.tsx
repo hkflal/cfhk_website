@@ -4,6 +4,7 @@ import LogoIcon from '../components/LogoIcon';
 import React, { useState, useEffect, ChangeEvent, FormEvent, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Partners } from '@/components/Partners';
 
 // Retained Icon: CheckBadgeIcon
 const CheckBadgeIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -342,19 +343,23 @@ export default function Home() {
       {/* Hero Section - Updated to use logo.png */}
       <section className="relative py-20 sm:py-24 lg:py-32 bg-gradient-to-br from-primary-600 to-primary-700 text-white">
         <img 
-          src="https://via.placeholder.com/1920x1080/4A5568/FFFFFF?text=Hero+Background" 
+          src="/images/Hero.jpg"
           alt="Hero background placeholder" 
-          className="absolute inset-0 w-full h-full object-cover z-0 opacity-40"
+          className="absolute inset-0 w-full h-full object-cover z-0 opacity-30"
         />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex justify-center mb-8">
             {/* Replaced LogoIcon SVG with img tag for logo.png */}
-            <img src="/images/logo.png" alt="福建中福對外勞務合作有限公司 Logo" className="h-24 w-auto" /> {/* Adjusted height to h-24 (96px), w-auto for aspect ratio */}
+            <img src="/images/logo.png" alt="福建中福對外勞務合作有限公司 Logo" className="hidden xl:block h-24 w-auto" />
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 tracking-tight font-playfair">中福(香港)有限公司</h1>
-          <p className="text-lg sm:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">
+          <p className="text-sm sm:text-base max-w-3xl mx-auto mt-4 leading-relaxed text-center">
             勞工處職業介紹所牌照號碼：76430<br />
             內地輸香港勞務經營證書編號: LW35002005006
+          </p>
+          <p className="text-xl sm:text-2xl max-w-2xl mx-auto mt-4 text-neutral-200 font-bold tracking-wide">
+            <span className="text-2xl sm:text-3xl">14間之一</span><br />
+            <span className="text-base sm:text-lg">商務部批准內地輸港勞務經營公司</span>
           </p>
         </div>
       </section>
@@ -378,26 +383,33 @@ export default function Home() {
               return (
                 <motion.div
                   key={service.id}
-                  className="bg-neutral-800 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 border-t-4 border-primary-600 p-8 flex flex-col text-white"
-                  initial={{ opacity: 0, scale: 0.8, y: 50 }} // Start invisible, scaled down, and slightly down
-                  whileInView={{ opacity: 1, scale: 1, y: 0 }} // Animate to full opacity, full scale, and original Y
-                  viewport={{ once: true, amount: 0.3 }} // Trigger once, when 30% of element is visible
-                  transition={{ duration: 0.6, delay: index * 0.2, ease: "easeOut" }} // Updated transition
+                  className="bg-neutral-800 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1.5 border-t-4 border-primary-600 p-8 flex flex-col text-white relative overflow-hidden"
+                  initial={{ opacity: 0, scale: 0.8, y: 50 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6, delay: index * 0.2, ease: "easeOut" }}
                 >
-                  <h3 className="text-xl font-semibold mb-3 text-center tracking-tight font-inter">{service.title}</h3>
-                  <p className="text-sm leading-relaxed mb-4 flex-grow text-center text-neutral-300">{service.description}</p>
-                  <div className="mt-auto pt-4 border-t border-neutral-700">
-                    <h4 className="font-semibold text-sm mb-2 text-center">主要服務內容：</h4>
-                    <ul className="space-y-1 text-sm text-neutral-300">
-                      {service.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start">
-                          <svg className="h-4 w-4 text-neutral-300 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                          </svg>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  <img 
+                    src={`/images/service-card${index + 1}.jpg`}
+                    alt={`${service.title} background`}
+                    className="absolute inset-0 w-full h-full object-cover opacity-30"
+                  />
+                  <div className="relative z-10">
+                    <h3 className="text-xl font-semibold mb-3 text-center tracking-tight font-inter">{service.title}</h3>
+                    <p className="text-sm leading-relaxed mb-4 flex-grow text-center text-neutral-300">{service.description}</p>
+                    <div className="mt-auto pt-4 border-t border-neutral-700">
+                      <h4 className="font-semibold text-sm mb-2 text-center">主要服務內容：</h4>
+                      <ul className="space-y-1 text-sm text-neutral-300">
+                        {service.features.map((feature, idx) => (
+                          <li key={idx} className="flex items-start">
+                            <svg className="h-4 w-4 text-neutral-300 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                            </svg>
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </motion.div>
               );
@@ -530,18 +542,16 @@ export default function Home() {
                 variants={stepCardVariants}
                 initial="hidden"
                 whileInView="visible"
-                // Removed onViewportEnter callback
-                viewport={{ once: true, amount: 0.2 }} // Trigger animation once when 20% visible
-                transition={{ duration: 0.5, delay: index * 0.25 }}
+                viewport={{ once: true, amount: 0.1, margin: "-100px" }} // Adjusted viewport trigger amount and added margin
+                transition={{ duration: 0.4, delay: index * 0.15 }} // Reduced delay between steps
               >
                 {/* Oval Date Label - Simplified Animation */}
                 <motion.div 
                   className="absolute top-1/2 left-5 transform -translate-x-1/2 -translate-y-1/2 w-auto md:left-6 z-10"
                   variants={ovalDateLabelVariants}
-                  // Rely on parent whileInView propagation
-                  // Initial/Animate might be needed if propagation isn't perfect
                   initial="hidden" 
-                  animate="visible" 
+                  animate="visible"
+                  transition={{ delay: 0.2, duration: 0.3 }} // Reduced delay and duration
                 >
                   <div className="bg-orange-600 text-white text-sm sm:text-base font-semibold px-3.5 py-1.5 rounded-full shadow-lg whitespace-nowrap">
                     {step.projectedStartDateStringShort}
@@ -593,7 +603,7 @@ export default function Home() {
 
           <div className="space-y-12">
             {/* Subsection 1: 補充勞工優化計劃：僱主須知 */}
-            <div className="p-8 bg-white rounded-xl shadow-lg">
+            <div className="p-8 bg-blue-50 rounded-xl shadow-lg">
               <h3 className="text-2xl font-semibold text-neutral-800 mb-6 tracking-tight">補充勞工優化計劃：僱主須知</h3>
               <ul className="list-disc list-outside space-y-3 text-neutral-700 leading-relaxed pl-5">
                 <li>「補充勞工優化計劃」旨在協助在香港經營業務且確實未能在本地招聘到技術員級別或以下合適人手的僱主。</li>
@@ -619,7 +629,7 @@ export default function Home() {
             </div>
 
             {/* Subsection 2: 申請流程與所需文件 */}
-            <div className="p-8 bg-white rounded-xl shadow-lg">
+            <div className="p-8 bg-yellow-50 rounded-xl shadow-lg">
               <h3 className="text-2xl font-semibold text-neutral-800 mb-6 tracking-tight">申請流程與所需文件</h3>
               <p className="text-neutral-700 leading-relaxed mb-4">申請流程包括：初步甄別 → 本地招聘 → 申請評估及結果。</p>
               <p className="text-neutral-700 leading-relaxed mb-4">申請者須根據申請的職位類別，填妥<strong>「常見職位申請表」（表格 ESLS-1A）或「非常見職位申請表」（表格 ESLS-1B）</strong>。</p>
@@ -651,15 +661,15 @@ export default function Home() {
             {/* ... other subsections of Supplementary Labour Scheme remain the same ... */}
             
             {/* Subsection 10: 聯絡及參考資源 */}
-            <div className="p-8 bg-white rounded-xl shadow-lg">
+            <div className="p-8 bg-green-50 rounded-xl shadow-lg">
               <h3 className="text-2xl font-semibold text-neutral-800 mb-6 tracking-tight">聯絡及參考資源</h3>
               <div className="grid md:grid-cols-2 gap-x-8 gap-y-6 text-neutral-700 leading-relaxed">
                 <div>
-                  <h4 className="text-lg font-semibold text-neutral-800 mb-2">勞工處補充勞工科</h4>
-                  <p>地址：九龍長沙灣道 303 號長沙灣政府合署 9 樓 929 室</p>
-                  <p>電話：2150 6363</p>
-                  <p>傳真：2504 3160 / 2542 2742 (終止合約通知書)</p>
-                  <p>電郵：sld-hq@labour.gov.hk</p>
+                  <h4 className="text-lg font-semibold text-neutral-800 mb-2">聯絡資訊</h4>
+                  <p>香港九龍旺角彌敦道707-713號</p>
+                  <p>銀高國際大廈9樓A室</p>
+                  <p>電話: +852 6148 6144</p>
+                  <p>電郵: info@cfhk.com</p>
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-neutral-800 mb-2">入境事務處輸入勞工組</h4>
@@ -694,7 +704,7 @@ export default function Home() {
             </div>
 
             {/* NEW SUBSECTION: 申請不獲處理或批准的常見情況 */}
-            <div className="p-8 bg-white rounded-xl shadow-lg">
+            <div className="p-8 bg-red-50 rounded-xl shadow-lg">
               <h3 className="text-2xl font-semibold text-neutral-800 mb-6 tracking-tight">申請不獲處理或批准的常見情況</h3>
               <p className="text-neutral-700 leading-relaxed mb-4">
                 根據提供的來源，在「補充勞工優化計劃」下，輸入勞工申請在以下情況下通常不獲處理或批准：
@@ -725,13 +735,8 @@ export default function Home() {
       </section>
 
       {/* About Us Section - ADDED BACKGROUND PLACEHOLDER */}
-      <section className="relative py-16 sm:py-20 lg:py-24 bg-white"> {/* Added relative for placeholder positioning */}
-        <img 
-          src="https://via.placeholder.com/1920x1080/CBD5E0/FFFFFF?text=About+Us+Section+BG" /* Light blueish-grey placeholder */
-          alt="About Us background placeholder" 
-          className="absolute inset-0 w-full h-full object-cover z-0 opacity-30"
-        />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> {/* Added relative z-10 for content */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-white">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 tracking-tight font-inter">
               關於我們
@@ -742,10 +747,10 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="rounded-xl shadow-2xl overflow-hidden">
-              <img src="/images/team-meeting-modern.jpg" alt="公司團隊現代化會議場景" className="aspect-[4/3] object-cover w-full" />
+              <img src="/images/about-us.jpg" alt="公司團隊現代化會議場景" className="aspect-[4/3] object-cover w-full" />
             </div>
             <div className="space-y-6">
-              <h3 className="text-2xl sm:text-3xl font-semibold text-neutral-800 tracking-tight">我們的使命與價值</h3>
+              <h3 className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">我們的使命與價值</h3>
               <p className="text-neutral-600 leading-relaxed">
                 憑藉多年的行業經驗和專業團隊，我們成功為眾多企業引進了高素質的內地勞工，涵蓋建築、護理、餐飲、零售等多個行業。我們深信，專業的服務和誠信的態度是建立長期合作夥伴關係的基石。
               </p>
@@ -762,8 +767,20 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Partners Section */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-orange-500 tracking-tight font-inter">
+              300+ 港澳合作伙伴
+            </h2>
+          </div>
+          <Partners />
+        </div>
+      </section>
+
       {/* MERGED CONTACT US SECTION */}
-      <section id="contact-section-merged" className="py-16 sm:py-20 lg:py-24 bg-white">
+      <section id="contact-section-merged" className="py-16 sm:py-20 lg:py-24 bg-neutral-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-start"> {/* Changed gap-8 to gap-12, items-center to items-start */}
             <div className="bg-neutral-50 p-8 rounded-xl shadow-xl"> {/* Added bg, padding, shadow for consistency */}
@@ -777,36 +794,43 @@ export default function Home() {
                   </svg>
                   <div className="text-neutral-700">
                     <strong className="block text-neutral-800">電話:</strong>
-                    <div>香港: 6148 6144</div>
-                    <div>澳門: 6559 6947</div>
-                    <div>中國: 159 1322 8786</div>
+                    <div>香港: 4413 0760</div>
+                    <div>澳門: 6396 3713</div>
+                    <div>中國: 17207217872</div>
                   </div>
                 </div>
-                <div className="flex items-start">
+                <div className="flex items-start"> {/* Phone */}
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary-500 mr-3 mt-1 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                     <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                   </svg>
                   <div className="text-neutral-700">
                     <strong className="block text-neutral-800">電郵:</strong>
-                    info@hkmolabour.com
+                    info@zf-hk.com
                   </div>
-                </div>
-                <div className="flex items-start">
+                </div> {/* Email */}
+                <div className="flex items-start"> {/* Address */}
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary-500 mr-3 mt-1 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                   </svg>
                   <div className="text-neutral-700">
                     <strong className="block text-neutral-800">地址:</strong>
-                    香港中環金融街8號國際金融中心二期
+                    香港銅鑼灣渣甸街54至58號富盛商業大廈12樓A室
                   </div>
                 </div>
               </div>
               
               <div className="border border-neutral-300 rounded-lg overflow-hidden h-64 md:h-80 shadow-inner">
-                <div className="w-full h-full bg-neutral-200 flex items-center justify-center text-neutral-500">
-                  Google Maps / Baidu Maps 地圖將在此顯示
-                </div>
+                <iframe
+                  title="公司地址地圖"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.9643604210114!2d114.1832309758891!3d22.279339843653705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x340400541ceead3b%3A0xfb7aa67297e746d2!2s58%20%E5%8F%B7%2C%20Prosperous%20Commercial%20Building%2C%2054-58%20Jardine&#39;s%20Bazaar%2C%20Causeway%20Bay%2C%20Hong%20Kong!5e0!3m2!1sen!2sus!4v1747155104419!5m2!1sen!2sus"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
             </div>
             
