@@ -66,7 +66,7 @@ export default function RootLayout({
                 <h3 className="text-lg font-semibold text-white mb-5 tracking-wide">聯絡資訊</h3>
                 <address className="text-sm text-neutral-400 not-italic space-y-3">
                   <p>香港銅鑼灣渣甸街54至58號<br/>富盛商業大廈12樓A室</p>
-                  <p>電話: <a href="tel:+85244130760" className="hover:text-primary-400 transition-colors duration-150">+852 4413 0760</a></p>
+                  <p>電話: <a href="tel:+85263963660" className="hover:text-primary-400 transition-colors duration-150">+852 6396 3660</a></p>
                   <p>電郵: <a href="mailto:info@zf-hk.com" className="hover:text-primary-400 transition-colors duration-150">info@zf-hk.com</a></p>
                 </address>
               </div>
