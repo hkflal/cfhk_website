@@ -56,18 +56,18 @@ export default function RootLayout({
               <div>
                 <h3 className="text-lg font-semibold text-white mb-5 tracking-wide">快捷連結</h3>
                 <ul className="space-y-3 text-sm">
-                  <li><a href="/services" className="hover:text-primary-400 transition-colors duration-150">服務範圍</a></li>
-                  <li><a href="/process" className="hover:text-primary-400 transition-colors duration-150">申請流程</a></li>
-                  <li><a href="/faq" className="hover:text-primary-400 transition-colors duration-150">常見問題</a></li>
-                  <li><a href="/contact" className="hover:text-primary-400 transition-colors duration-150">聯絡我們</a></li>
+                  <li><a href="#services" className="hover:text-primary-400 transition-colors duration-150">服務方案</a></li>
+                  <li><a href="#process" className="hover:text-primary-400 transition-colors duration-150">申請流程</a></li>
+                  <li><a href="#about" className="hover:text-primary-400 transition-colors duration-150">關於我們</a></li>
+                  <li><a href="#contact-section-merged" className="hover:text-primary-400 transition-colors duration-150">聯絡我們</a></li>
                 </ul>
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-white mb-5 tracking-wide">聯絡資訊</h3>
                 <address className="text-sm text-neutral-400 not-italic space-y-3">
-                  <p>香港九龍旺角彌敦道707-713號<br/>銀高國際大廈9樓A室</p>
-                  <p>電話: <a href="tel:+85261486144" className="hover:text-primary-400 transition-colors duration-150">+852 6148 6144</a></p>
-                  <p>電郵: <a href="mailto:info@cfhk.com" className="hover:text-primary-400 transition-colors duration-150">info@cfhk.com</a></p>
+                  <p>香港銅鑼灣渣甸街54至58號<br/>富盛商業大廈12樓A室</p>
+                  <p>電話: <a href="tel:+85244130760" className="hover:text-primary-400 transition-colors duration-150">+852 4413 0760</a></p>
+                  <p>電郵: <a href="mailto:info@zf-hk.com" className="hover:text-primary-400 transition-colors duration-150">info@zf-hk.com</a></p>
                 </address>
               </div>
             </div>

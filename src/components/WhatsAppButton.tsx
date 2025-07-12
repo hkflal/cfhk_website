@@ -47,9 +47,9 @@ export function WhatsAppButton() {
   }, []);
   
   // New WhatsApp number
-  const whatsAppNumber = "44130760"; // No leading + or country code for wa.me
+  const whatsAppNumber = "63963660"; // No leading + or country code for wa.me
   const instagramProfile = "hkflal_official";
-  const phoneNumber = "+85244130760"; // Full number for tel:
+  const phoneNumber = "+85263963660"; // Full number for tel:
 
   return (
     <div
